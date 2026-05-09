@@ -1,0 +1,130 @@
+---
+import { t, type Lang } from "../i18n/translations";
+import { Users, Gift, Store, Building2, ReceiptText, Clock3 } from "lucide-react";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "en" } = Astro.props;
+
+const metricIcons = {
+  Upoints: [Users, Gift, Store],
+  Propi: [Building2, ReceiptText, Clock3],
+};
+
+const cases = [
+  {
+    name: "Upoints",
+    logo: "/Upointslogo.webp",
+    url: "https://upoints.ec/",
+    categoryKey: "successStories.upoints.category",
+    resultKey: "successStories.upoints.result",
+    metrics: [
+      { value: "120", labelKey: "successStories.upoints.metric1" },
+      { value: "450", labelKey: "successStories.upoints.metric2" },
+      { value: "12", labelKey: "successStories.upoints.metric3" },
+    ],
+    testimonialKey: "successStories.upoints.testimonial",
+  },
+  {
+    name: "Propi",
+    logo: "/Propilogo.webp",
+    url: "https://propi.suitsoftware.com/",
+    categoryKey: "successStories.propi.category",
+    resultKey: "successStories.propi.result",
+    metrics: [
+      { value: "8", labelKey: "successStories.propi.metric1" },
+      { value: "2.4K", labelKey: "successStories.propi.metric2" },
+      { value: "15 min", labelKey: "successStories.propi.metric3" },
+    ],
+    testimonialKey: "successStories.propi.testimonial",
+  },
+];
+---
+
+<section id="success-stories" class="py-20 lg:py-28 bg-surface-50 dark:bg-surface-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold tracking-wide uppercase rounded-full bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-400 border border-accent-200 dark:border-accent-800 mb-4">
+        {t(lang, "successStories.label")}
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-surface-900 dark:text-white text-balance font-sans">
+        {t(lang, "successStories.title")}
+      </h2>
+      <p class="mt-6 text-lg sm:text-xl text-surface-600 dark:text-surface-300">
+        {t(lang, "successStories.description")}
+      </p>
+    </div>
+
+    <!-- Cases Grid -->
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+      {cases.map((caseStudy) => (
+        <div class="bg-white dark:bg-surface-800 rounded-2xl p-4 lg:p-8 border border-surface-200 dark:border-surface-700 shadow-lg shadow-surface-900/5 dark:shadow-surface-900/10 transition-all duration-300 hover:shadow-xl hover:border-brand-300 dark:hover:border-brand-600">
+          <!-- Header: Logo + Name + Category -->
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-16 h-16 bg-surface-100 dark:bg-surface-700 rounded-xl flex items-center justify-center p-3">
+              <img 
+                src={caseStudy.logo} 
+                alt={caseStudy.name} 
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <div>
+              <h3 class="text-xl lg:text-2xl font-black text-surface-900 dark:text-white font-sans">{caseStudy.name}</h3>
+              <p class="text-xs text-surface-500 dark:text-surface-400">{t(lang, caseStudy.categoryKey)}</p>
+            </div>
+          </div>
+
+          <!-- Result Principal -->
+          <div class="mb-6">
+            <p class="text-2xl lg:text-3xl font-extrabold text-brand-600 dark:text-brand-400 leading-none tracking-tight">
+              {t(lang, caseStudy.resultKey)}
+            </p>
+          </div>
+
+          <!-- Metrics Row -->
+          <div class="grid grid-cols-3 gap-2 mb-6">
+            {caseStudy.metrics.map((metric, index) => {
+              const Icon = metricIcons[caseStudy.name as keyof typeof metricIcons][index];
+              return (
+                <div class="flex flex-col items-center gap-1.5">
+                  <div class="text-2xl lg:text-[32px] font-bold leading-none tracking-tight tabular-nums text-surface-900 dark:text-white">
+                    {metric.value}
+                  </div>
+                  <div class="inline-flex items-center gap-1.5 text-[14px] font-medium leading-none text-surface-500 dark:text-surface-400">
+                    <Icon className="h-[1.8em] w-[1.8em] shrink-0 text-brand-600/80 dark:text-brand-400/80" />
+                    <span>{t(lang, metric.labelKey)}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <!-- Testimonial -->
+          <div class="mb-6">
+            <p class="text-sm text-surface-500 dark:text-surface-400 italic">
+              "{t(lang, caseStudy.testimonialKey)}"
+            </p>
+          </div>
+
+          <!-- CTA Link -->
+          <div class="flex justify-end">
+            <a
+              href={caseStudy.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 rounded-lg transition-colors"
+            >
+            {t(lang, "successStories.cta")}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

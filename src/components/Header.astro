@@ -19,21 +19,7 @@ const { lang = "en" } = Astro.props;
         <span class="text-lg lg:text-xl font-black text-brand-900 dark:text-white tracking-tight font-sans">Suit Software</span>
       </a>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center gap-2">
-        <a href="#home" class="px-4 py-2 text-sm font-semibold text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-xl hover:bg-brand-50 dark:hover:bg-surface-800 transition-all duration-200">
-          {t(lang, "nav.home")}
-        </a>
-        <a href="#services" class="px-4 py-2 text-sm font-semibold text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-xl hover:bg-brand-50 dark:hover:bg-surface-800 transition-all duration-200">
-          {t(lang, "nav.services")}
-        </a>
-        <a href="#clients" class="px-4 py-2 text-sm font-semibold text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-xl hover:bg-brand-50 dark:hover:bg-surface-800 transition-all duration-200">
-          {t(lang, "nav.clients")}
-        </a>
-        <a href="#contact" class="px-4 py-2 text-sm font-semibold text-surface-600 dark:text-surface-400 hover:text-brand-900 dark:hover:text-white rounded-xl hover:bg-brand-50 dark:hover:bg-surface-800 transition-all duration-200">
-          {t(lang, "nav.contact")}
-        </a>
-      </div>
+      <!-- Desktop Navigation removed for higher conversion -->
 
       <!-- Actions: Get Started | Language | Dark Mode | Mobile Menu -->
       <div class="flex items-center gap-2">
@@ -72,22 +58,10 @@ const { lang = "en" } = Astro.props;
       </div>
     </div>
 
-    <!-- Mobile Navigation -->
+    <!-- Mobile Navigation: Only CTA visible for higher conversion -->
     <div id="mobile-menu" class="md:hidden hidden pb-4 transition-all duration-300">
-      <div class="flex flex-col gap-1 pt-3 border-t border-surface-200 dark:border-surface-800">
-        <a href="#home" class="px-4 py-3 text-base font-medium text-surface-700 dark:text-surface-300 hover:text-brand-900 dark:hover:text-white hover:bg-surface-100 dark:hover:bg-surface-800 rounded-lg transition-colors">
-          {t(lang, "nav.home")}
-        </a>
-        <a href="#services" class="px-4 py-3 text-base font-medium text-surface-700 dark:text-surface-300 hover:text-brand-900 dark:hover:text-white hover:bg-surface-100 dark:hover:bg-surface-800 rounded-lg transition-colors">
-          {t(lang, "nav.services")}
-        </a>
-        <a href="#clients" class="px-4 py-3 text-base font-medium text-surface-700 dark:text-surface-300 hover:text-brand-900 dark:hover:text-white hover:bg-surface-100 dark:hover:bg-surface-800 rounded-lg transition-colors">
-          {t(lang, "nav.clients")}
-        </a>
-        <a href="#contact" class="px-4 py-3 text-base font-medium text-surface-700 dark:text-surface-300 hover:text-brand-900 dark:hover:text-white hover:bg-surface-100 dark:hover:bg-surface-800 rounded-lg transition-colors">
-          {t(lang, "nav.contact")}
-        </a>
-        <a href="#contact" class="mt-2 mx-4 inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white bg-brand-900 hover:bg-brand-800 dark:bg-brand-600 dark:hover:bg-brand-500 rounded-lg transition-colors sm:hidden">
+      <div class="flex flex-col gap-2 pt-3 border-t border-surface-200 dark:border-surface-800">
+        <a href="#contact" class="mx-4 inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white bg-brand-900 hover:bg-brand-800 dark:bg-brand-600 dark:hover:bg-brand-500 rounded-lg transition-colors">
           {t(lang, "nav.getStarted")}
         </a>
       </div>
@@ -130,12 +104,10 @@ const { lang = "en" } = Astro.props;
     });
 
     // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
+    document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", (e) => {
         e.preventDefault();
-        const target = document.querySelector(
-          (this as HTMLAnchorElement).getAttribute("href") as string
-        );
+        const target = document.querySelector(anchor.getAttribute("href") as string);
         if (target) {
           target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
