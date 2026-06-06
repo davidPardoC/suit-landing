@@ -16,16 +16,33 @@ export const translations = {
 
     // Hero
     "hero.tagline": "Software Consultancy",
-    "hero.title.line1": "We Build",
-    "hero.title.highlight": "Digital Products",
-    "hero.title.line2": "That Drive Results",
-    "hero.description":
-      "We deliver high-quality software solutions with a focus on user experience and modern design. From web development to cloud consulting, we help businesses scale.",
+    "hero.title.line1": "We Build Software",
+    "hero.title.highlight": "That Grows",
+    "hero.title.line2": "Your Business",
+    "hero.description": "We develop modern software to scale businesses.",
     "hero.cta.primary": "Start a Project",
     "hero.cta.secondary": "Our Services",
     "hero.stat.projects": "Projects Delivered",
     "hero.stat.satisfaction": "Client Satisfaction",
     "hero.stat.support": "Support",
+
+    // Success Stories
+    "successStories.label": "Success Stories",
+    "successStories.title": "Software That Delivers Real Results",
+    "successStories.description": "Two examples of how we've helped businesses automate processes and grow.",
+    "successStories.cta": "View case →",
+    "successStories.upoints.category": "Digital Loyalty",
+    "successStories.upoints.result": "More repeat purchases, more retention",
+    "successStories.upoints.metric1": "Clients",
+    "successStories.upoints.metric2": "Redeems",
+    "successStories.upoints.metric3": "Businesses",
+    "successStories.upoints.testimonial": "Our customers now return more often.",
+    "successStories.propi.category": "Building Management",
+    "successStories.propi.result": "Operational migration in minutes",
+    "successStories.propi.metric1": "Buildings",
+    "successStories.propi.metric2": "Invoices",
+    "successStories.propi.metric3": "Migration",
+    "successStories.propi.testimonial": "We went from manual processes to a much more organized operation.",
 
     // Services
     "services.label": "What we do",
@@ -189,16 +206,33 @@ export const translations = {
 
     // Hero
     "hero.tagline": "Consultora de Software",
-    "hero.title.line1": "Construimos",
-    "hero.title.highlight": "Productos Digitales",
-    "hero.title.line2": "Que Generan Resultados",
-    "hero.description":
-      "Entregamos soluciones de software de alta calidad con enfoque en experiencia de usuario y dise\u00f1o moderno. Desde desarrollo web hasta consultor\u00eda en la nube, ayudamos a las empresas a escalar.",
+    "hero.title.line1": "Creamos Software",
+    "hero.title.highlight": "Que Hacen Crecer",
+    "hero.title.line2": "Tu Negocio",
+    "hero.description": "Desarrollamos software moderno para escalar negocios.",
     "hero.cta.primary": "Iniciar Proyecto",
     "hero.cta.secondary": "Nuestros Servicios",
     "hero.stat.projects": "Proyectos Entregados",
     "hero.stat.satisfaction": "Satisfacci\u00f3n del Cliente",
     "hero.stat.support": "Soporte",
+
+    // Success Stories
+    "successStories.label": "Casos de Éxito",
+    "successStories.title": "Software que genera resultados reales",
+    "successStories.description": "Dos ejemplos de cómo ayudamos a empresas a automatizar procesos y crecer.",
+    "successStories.cta": "Ver caso",
+    "successStories.upoints.category": "Lealtad digital",
+    "successStories.upoints.result": "Más recompra y retención",
+    "successStories.upoints.metric1": "Clientes",
+    "successStories.upoints.metric2": "Canjes",
+    "successStories.upoints.metric3": "Negocios",
+    "successStories.upoints.testimonial": "Nuestros clientes ahora regresan con más frecuencia.",
+    "successStories.propi.category": "Gestión de edificios",
+    "successStories.propi.result": "Migración operativa en minutos",
+    "successStories.propi.metric1": "Edificios",
+    "successStories.propi.metric2": "Facturas",
+    "successStories.propi.metric3": "Migración",
+    "successStories.propi.testimonial": "Pasamos de procesos manuales a una operación mucho más ordenada.",
 
     // Services
     "services.label": "Lo que hacemos",
